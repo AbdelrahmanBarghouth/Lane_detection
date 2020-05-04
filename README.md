@@ -1,6 +1,6 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
+## This is a documentation for project lane detection in udacity nanodegree
 
 ### This is a project to detect lane lines in a road using simple Computer vision algorithms (Canny, Hough)
 
