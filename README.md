@@ -4,8 +4,6 @@
 
 ### This is a project to detect lane lines in a road using simple Computer vision algorithms (Canny, Hough)
 
----
-
 [//]: # (Image References)
 
 [image1]: ./test_images/solidWhiteCurve.jpg
@@ -25,7 +23,6 @@
 
 [image11]: ./test_images/whiteCarLaneSwitch.jpg
 [image12]: ./test_images_output/whiteCarLaneSwitch.jpg
----
 
 ### Pipeline
 
@@ -60,6 +57,10 @@ In this table is the output of the test images used in this project. The output 
 
 
 ### Shortcomings
+This algorithm is still not mature at all and have a number of shortcomings. The change in brightness is a very clear issue in this project. When a shadow is encountered by a tree or any object that can change values of lanes in the image and so the parameters used in the pipeline could result in a wrong prediciton at the end. This issue can be faced by any weather condition as well like raining, snowing, fog, etc.
+Another issue that this algorithm could face is line of sight to lanes is cut, whether because of a car passing over the lane, or because of traffic and cars are so close to our camera and so vision is very hard to be done, or even because of the presence of a truck or a big vehicle that can block the line of sight of the camera to the lane lines.
 
 
 ### Improvements
+As improvements using the current pipeline, the best option would be a dynamic parameter change. For example by calculating the lengths and widths of the lines detected and number of rejected lines we could formulate equations to control gradual changes in the parameters either in the canny or in the hough algorithms.
+Another improevemnt could be searching for line only in the neighbour pixels with the previous frame, as the position of lane would not move dramatically, this would allow us to narrow down our search area and could be also mixed with dynamic parameter chaning and so create a simple basic reinforcement learning algorithm for the car to detect the parameters that should be used and change them to have higher accuracy and tackle the changes in brightness gradually frame by frame.
